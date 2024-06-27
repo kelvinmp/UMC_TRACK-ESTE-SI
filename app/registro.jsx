@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
 
 
 const Registro = () => {
@@ -11,8 +12,8 @@ const Registro = () => {
         <View style={styles.header}>
           <Image source={require('../assets/maritima.png')} style={styles.logo} />
           <View style={styles.textContainer}>
-            <Text style={styles.titulo}>CREA UNA</Text>
-            <Text style={styles.titulo}>CUENTA</Text>
+            <Text style={styles.titulo_B}>CREA UNA</Text>
+            <Text style={styles.titulo_B}>CUENTA</Text>
           </View>
         </View>
       </View>
@@ -26,6 +27,9 @@ const Registro = () => {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Crear Cuenta</Text>
         </TouchableOpacity>
+
+        <Text style={styles.nolsa}>¿No tienes cuenta?</Text>
+        <Link href="/home" style={styles.siza}>Crea una cuenta</Link>
       </View>
     </SafeAreaView>
   );
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   topBackground: {
+    flex: 1,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -65,14 +70,14 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: 'column',
   },
-  titulo: {
+  titulo_B: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 36,
     color: '#FFFFFF',
   },
   form: {
     borderRadius: 25,
-    marginTop: 80,
+    marginTop: 60,
     backgroundColor: 'white',
     elevation: 8,
     padding: 25,
