@@ -26,9 +26,9 @@ const Home = () => {
           <View style={styles.rowContainer}>
             <View style={styles.package}>
               <View style={styles.fondo}>
-                <View style={[styles.light, { backgroundColor: 'red' }]} />
-                <View style={[styles.light, { backgroundColor: 'yellow' }]} />
-                <View style={[styles.light, { backgroundColor: 'green' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(0, 100%, 50%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(60, 100%, 50%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(120, 100%, 40%)' }]} />
               </View>
               <View style={styles.fondo}>
                 <Text style={styles.p}>PEDIR PARADA!</Text>
@@ -44,9 +44,9 @@ const Home = () => {
           <View style={styles.rowContainer}>
             <View style={styles.package}>
               <View style={styles.fondo}>
-                <View style={[styles.light, { backgroundColor: 'red' }]} />
-                <View style={[styles.light, { backgroundColor: 'yellow' }]} />
-                <View style={[styles.light, { backgroundColor: 'green' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(0, 100%, 50%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(60, 100%, 10%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(120, 100%, 10%)' }]} />
               </View>
               <View style={styles.fondo}>
                 <Text style={styles.p}>PEDIR PARADA!</Text>
@@ -62,9 +62,9 @@ const Home = () => {
           <View style={styles.rowContainer}>
             <View style={styles.package}>
               <View style={styles.fondo}>
-                <View style={[styles.light, { backgroundColor: 'red' }]} />
-                <View style={[styles.light, { backgroundColor: 'yellow' }]} />
-                <View style={[styles.light, { backgroundColor: 'green' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(0, 100%, 10%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(60, 100%, 50%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(120, 100%, 10%)' }]} />
               </View>
               <View style={styles.fondo}>
                 <Text style={styles.p}>PEDIR PARADA!</Text>
@@ -80,9 +80,9 @@ const Home = () => {
           <View style={styles.rowContainer}>
             <View style={styles.package}>
               <View style={styles.fondo}>
-                <View style={[styles.light, { backgroundColor: 'red' }]} />
-                <View style={[styles.light, { backgroundColor: 'yellow' }]} />
-                <View style={[styles.light, { backgroundColor: 'green' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(0, 100%, 10%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(60, 100%, 10%)' }]} />
+                <View style={[styles.light, { backgroundColor: 'hsl(120, 100%, 40%)' }]} />
               </View>
               <View style={styles.fondo}>
                 <Text style={styles.p}>PEDIR PARADA!</Text>

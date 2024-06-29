@@ -33,12 +33,12 @@ export default function Index() {
         <TextInput placeholder="Código de Estudiante" style={styles.input} />
         <TextInput placeholder="Contraseña" style={styles.input} secureTextEntry={true} />
         <TouchableOpacity onPress={() => handleOptionSelect('Option')}>
-          <Text style={{ color: '#085FF5', marginLeft: 18, fontFamily: 'Montserrat-Regular', fontSize: 10 }}>
+          <Text style={{ color: '#085FF5', marginLeft: 18, fontFamily: 'Montserrat-Regular', fontSize: 12 }}>
             {selectedOption === 'Option' ? '◉' : '○'} Recuérdame
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Link href="/home" style={styles.buttonText}>Iniciar Sesión</Link>
         </TouchableOpacity>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Text style={styles.nolsa}>¿No tienes cuenta?</Text>
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor:'#E4E4E4' ,
     fontFamily: 'Montserrat-Regular', // Usar la fuente cargada
-    fontSize: 12,
+    fontSize: 16,
     margin: 10,
     padding: 10,
     borderWidth: 1,
@@ -110,14 +110,14 @@ const styles = StyleSheet.create({
   },
   nolsa: {
     fontFamily: 'Montserrat-ExtraLight',
-    fontSize: 9,
+    fontSize: 12,
     color: '#000000',
   },
   siza: {
     fontFamily: 'Montserrat-ExtraLight',
-    fontSize: 9,
+    fontSize: 12,
     color: '#085FF5',
-    marginLeft: 100,
+    marginLeft: 55,
   },
   bottomBackground: {
     position: 'absolute',

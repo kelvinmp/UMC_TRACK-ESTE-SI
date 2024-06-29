@@ -1,10 +1,35 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Link } from 'expo-router';
-
 
 const Registro = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const data = [
+    { carrera: 'Ingeniería Marítima', codigo: 'INGM' },
+    { carrera: 'Ingeniería Ambiental', codigo: 'INGAMB' },
+    { carrera: 'Ingeniería Informática', codigo: 'INGINF' },
+    { carrera: 'Licenciatura en Administración  ', codigo: 'ADM' },
+    { carrera: 'Licenciatura en Turismo', codigo: 'TUR' },
+    { carrera: 'TSU en Transporte', codigo: 'TSUACU' },
+    { carrera: 'Velero de Preparación', codigo: 'VELPRE' },
+    { carrera: 'INGM-12345678 (CodCarrera-Cédula)'}
+  ];
+
+  const renderItem = ({ item }) => (
+    <View style={styles.row}>
+      <Text style={styles.carrera}>{item.carrera}</Text>
+      <Text style={styles.codigo}>{item.codigo}</Text>
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,10 +52,31 @@ const Registro = () => {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Crear Cuenta</Text>
         </TouchableOpacity>
-
-        <Text style={styles.nolsa}>¿No tienes cuenta?</Text>
-        <Link href="/home" style={styles.siza}>Crea una cuenta</Link>
       </View>
+      
+      <TouchableOpacity onPress={handleOpenModal}>
+        <Text style={styles.link}>Ver: Código de Estudiante</Text>
+      </TouchableOpacity>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={handleCloseModal}
+      >
+        <View style={styles.modalBackground}>
+          <View style={styles.modalContent}>
+          <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.codigo}
+      />
+            <TouchableOpacity style={styles.closeButton} onPress={handleCloseModal}>
+              <Text style={styles.closeButtonText}>Cerrar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -55,7 +101,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     alignItems: 'center',
-    justifyContent: 'center', // Center content vertically
+    justifyContent: 'center',
   },
   header: {
     top: 25,
@@ -84,12 +130,12 @@ const styles = StyleSheet.create({
     maxWidth: 550,
     maxHeight: 450,
     flex: 1,
-    alignItems: 'center', // Center the form items
+    alignItems: 'center',
   },
   input: {
     backgroundColor: '#E4E4E4',
     fontFamily: 'Montserrat-Regular',
-    fontSize: 12,
+    fontSize: 14,
     margin: 15,
     padding: 10,
     borderWidth: 1,
@@ -97,19 +143,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     width: 250,
   },
-  picker: {
-    height: 50,
-    width: 250,
-    margin: 15,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 25,
-  },
   button: {
     backgroundColor: '#085FF5',
     color: '#FFFFFF',
     fontFamily: 'Montserrat-Bold',
-    fontSize: 12,
+    fontSize: 14,
     margin: 15,
     padding: 10,
     borderWidth: 1,
@@ -122,5 +160,59 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontFamily: 'Montserrat-Bold',
+  },
+  link: {
+    color: '#085FF5',
+    fontFamily: 'Montserrat-Bold',
+    margin: 15,
+  },
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  modalContent: {
+    width: 350,
+    padding: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalText: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  closeButton: {
+    backgroundColor: '#085FF5',
+    borderRadius: 10,
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 10
+  },
+  closeButtonText: {
+    color: '#FFFFFF',
+    fontFamily: 'Montserrat-Bold',
+  },
+  carrera: {
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
+  },
+  codigo: {
+    fontSize: 16,
+    color: '#666',
+  },
+  ejemplo: {
+    fontSize: 16,
+    color: '#085FF5',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
 });
